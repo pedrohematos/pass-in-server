@@ -9,8 +9,8 @@ if (isNaN(port)) {
 
 const app = fastify();
 
-app.get("/", () => {
-  return "Hello world!";
+app.post("/events", (request, reply) => {
+  return console.log(request.body);
 });
 
 app.listen({ port }).then(() => {
