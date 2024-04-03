@@ -6,3 +6,21 @@ Content-Type: application/json
   "details": "An event for those who are passionate about programming",
   "maximumAttendees": 100
 }
+
+###
+
+POST http://localhost:3333/events/7c4a1307-b678-4356-bfff-c2eff710d5f3/attendees
+Content-Type: application/json
+
+{
+  "name": "Pedro Matos",
+  "email": "pedrohematos@outlook.com"
+}
+
+###
+
+GET http://localhost:3333/events/7c4a1307-b678-4356-bfff-c2eff710d5f3
+
+###
+
+GET http://localhost:3333/attendees/3/badge
