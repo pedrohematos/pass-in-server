@@ -15,7 +15,7 @@ export async function getEventAttendees(app: FastifyInstance) {
         }),
         querystring: z.object({
           name: z.string().nullish(),
-          pageIndex: z.string().nullish().default("0").transform(Number),
+          page: z.string().nullish().default("1").transform(Number),
         }),
         response: {
           200: z.object({
@@ -35,7 +35,9 @@ export async function getEventAttendees(app: FastifyInstance) {
     },
     async (request, reply) => {
       const { eventId } = request.params;
-      const { pageIndex, name } = request.query;
+      const { page, name } = request.query;
+
+      const pageIndex = page ? page - 1 : 0;
 
       const where = name
         ? {
