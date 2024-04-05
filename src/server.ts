@@ -61,4 +61,5 @@ app.setErrorHandler(errorHandler);
 
 app.listen({ port, host: "0.0.0.0" }).then(() => {
   console.log("HTTP server running on port", port);
+  console.log(`Docs can be fount at: ({host}:${port}/docs)`);
 });
